@@ -29,7 +29,7 @@ server = app.server
 
 # App layout
 app.layout = html.Div([
-    html.Div('📊 Dashboard Overview', style={'textAlign': 'center', 'color': 'darkblue', 'fontSize': 36, 'marginBottom': '20px'}),
+    html.Div('📊 Predicting Egg Prices', style={'textAlign': 'center', 'color': 'black', 'fontSize': 50, 'marginBottom': '20px'}),
 
     # Top row: Summary Cards
     html.Div([
