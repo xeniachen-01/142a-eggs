@@ -83,43 +83,19 @@ app.layout = html.Div([
         ], style={'width': '30%', 'padding': '10px'}),
     ], style={'display': 'flex'}),
 
-    # Third row: Downloadable CSVs
+    # Third row: Download buttons
     html.Div([
-        # Download X.csv
         html.Div([
-            dcc.Download(id='download-x'),
-            html.A('Download X Data', id='download-link-x', href='/download-x', target='_blank')
+            html.Button("Download X Data (CSV)", id="btn-download-x"),
+            dcc.Download(id="download-x")
         ], style={'width': '30%', 'padding': '30px'}),
 
-        # Download y.csv
         html.Div([
-            dcc.Download(id='download-y'),
-            html.A(
-                'Download y Data',
-                id='download-link-y',
-                href='https://raw.githubusercontent.com/xeniachen-01/142a-eggs/main/y.csv',  # Correct raw file URL
-                target='_blank',
-                download='y.csv'  # Suggests a filename for the downloaded file
-            )
+            html.Button("Download y Data (CSV)", id="btn-download-y"),
+            dcc.Download(id="download-y")
         ], style={'width': '30%', 'padding': '30px'}),
-
-        # Dropdown menu for individual datasets
-        html.Div([
-            html.H4('Download Individual Datasets'),
-            dcc.Dropdown(
-                id='dataset-dropdown',
-                options=[
-                    {'label': 'Avian Influenza', 'value': 'americas-outbreaks.csv'},
-                    {'label': 'Dataset 2', 'value': 'dataset2.csv'},
-                    {'label': 'Dataset 3', 'value': 'dataset3.csv'}
-                ],
-                placeholder='Select a dataset',
-                style={'width': '80%'}
-            ),
-            html.Div(id='download-dataset-container', style={'marginTop': '10px'}),
-        ], style={'width': '30%', 'padding': '10px'}),
     ], style={'display': 'flex'}),
-    
+
     # Fourth Row: Line Plot
     html.Div([
         html.Div([
@@ -150,7 +126,26 @@ app.layout = html.Div([
 
 ], style={'padding': '20px'})
 
+from dash.dependencies import Input, Output
+import base64
+import io
+
+@app.callback(
+    Output("download-x", "data"),
+    Input("btn-download-x", "n_clicks"),
+    prevent_initial_call=True,
+)
+def download_x(n_clicks):
+    return dcc.send_data_frame(X.to_csv, "X.csv", index=False)
+
+@app.callback(
+    Output("download-y", "data"),
+    Input("btn-download-y", "n_clicks"),
+    prevent_initial_call=True,
+)
+def download_y(n_clicks):
+    return dcc.send_data_frame(y.to_csv, "y.csv", index=False)
+
 # Run the app
 if __name__ == '__main__':
     app.run(debug=True)
-# Note: The download links for X and y are placeholders. You may need to implement the download functionality using Flask or another method.
