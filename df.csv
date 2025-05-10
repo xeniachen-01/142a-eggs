@@ -1,4 +1,4 @@
-Year-Month,Outbreaks,Price,bacon price,potato price,soybean price,wheat price,corn price,egg_hols,Thanksgiving,Passover/Easter,gas price
+Year-Month,Outbreaks,Price,bacon price,potato price,soybean price,wheat price,corn price,Christmas,Thanksgiving,Passover/Easter,gas price
 2022-02,8,2.005,7.097,0.802,15.885375,390.5,6.5006,False,False,False,3.611
 2022-03,56,2.046,7.203,0.825,16.733152173913044,486.3,7.4656521739130435,False,False,False,4.322
 2022-04,68,2.52,7.422,0.849,16.798190476190477,495.28,7.859309523809524,False,False,True,4.213
