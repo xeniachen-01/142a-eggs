@@ -2,9 +2,9 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
-import seaborn as sns
 from sklearn.metrics import mean_squared_error, r2_score
 from math import sqrt
+
 X = pd.read_csv(r"X.csv")
 egg = pd.read_csv(r"y.csv")
 # Join X and y on their indices
