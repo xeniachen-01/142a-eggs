@@ -84,8 +84,6 @@ fig_pre.update_yaxes(title_text="R² Score", row=1, col=1).update_yaxes(title_te
 # Initialize the app
 app = Dash()
 server = app.server
-# Initialize the app
-app = Dash()
 
 # App layout
 app.layout = html.Div([
