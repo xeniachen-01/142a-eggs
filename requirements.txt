@@ -1,5 +1,5 @@
 gunicorn
 pandas
 dash
-sklearn
 seaborn
+scikit-learn
