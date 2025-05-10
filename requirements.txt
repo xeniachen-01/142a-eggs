@@ -5,4 +5,4 @@ dash
 seaborn
 scikit-learn
 statsmodels
-plotly
+math
