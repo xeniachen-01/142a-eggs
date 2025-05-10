@@ -4,6 +4,10 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
 from math import sqrt
+import statsmodels.api as sm
+from statsmodels.stats.outliers_influence import variance_inflation_factor
+from sklearn.model_selection import cross_val_score
+
 
 X = pd.read_csv(r"X.csv")
 egg = pd.read_csv(r"y.csv")
@@ -14,8 +18,7 @@ X['egg_price'] = egg
 X['Y'] = X['egg_price'].shift(-1)
 X_train, X_test, y_train, y_test = train_test_split(X.drop(columns=['Y', 'Year-Month']), X['Y'], test_size=0.25, shuffle = False)
 # Import the library that contains all the functions/modules related to the regression model
-import statsmodels.api as sm
-from statsmodels.stats.outliers_influence import variance_inflation_factor
+
 # We must add an intercept as the standard model doesn't automatically fit one
 X_train = sm.add_constant(X_train)
 X_test = sm.add_constant(X_test)
@@ -34,7 +37,6 @@ residuals = y_test.iloc[:-1] - pred[:-1]
 # Create a DataFrame for the residuals  
 residuals_df = pd.DataFrame({'Actual': y_test.iloc[:-1], 'Predicted': pred[:-1], 'Residuals': residuals})
 # Perform cross-validation
-from sklearn.model_selection import cross_val_score
 cv_scores = cross_val_score(lr, X_train, y_train, cv=5, scoring='neg_mean_squared_error')
 
 # Convert negative MSE to positive for interpretation

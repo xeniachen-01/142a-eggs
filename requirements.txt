@@ -1,5 +1,10 @@
 gunicorn
 pandas
+numpy
 dash
 seaborn
 scikit-learn
+statsmodels
+plotly
+plotly_express
+plotly-dash
