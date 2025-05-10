@@ -3,6 +3,7 @@ from dash import Dash, html, dash_table, dcc
 import pandas as pd
 import numpy as np
 import plotly.express as px
+import sklearn
 from sklearn.model_selection import train_test_split
 from backtest import feature_importance
 import plotly.graph_objects as go
