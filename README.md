@@ -39,3 +39,9 @@ This project was created by a team of students in the Spring 2025 offering of **
 
 The course is taught by faculty in the **Industrial Engineering and Operations Research (IEOR)** department, with guidance and feedback provided by the course staff.
 
+## Final Paper and Presentation
+[142A Final Project Report.pdf](https://github.com/user-attachments/files/20584825/142A.Final.Project.Report.pdf)
+
+## Dashboard
+https://eggstest.onrender.com
+
